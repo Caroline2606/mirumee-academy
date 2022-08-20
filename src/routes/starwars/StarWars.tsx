@@ -8,7 +8,6 @@ import { Accordion } from "../../components/Accordion";
 const REST_URI = "https://swapi.dev/api";
 
 export const StarWars: React.FC = () => {
-  // const { isError, data, error } = useFilms();
 
   const [movies, setMovies] = React.useState<any[]>([]);
 
@@ -30,30 +29,13 @@ export const StarWars: React.FC = () => {
     }
   };
 
-
-  return <Accordion onClick={() => fetchFilms()}/>;
+  return (
+    <>
+      {/* {data?.films?.map((film: any) => (
+        <Accordion title={film?.title} key={film?.id}>
+          
+        </Accordion>
+      ))} */}
+    </>
+  );
 };
-
-// function useFilms() {
-//   return useQuery(["getFilms"], async () => {
-//     const data = await client.request(
-//       gql`
-//         query {
-//           allFilms {
-//             films {
-//               id
-//               title
-//               planetConnection {
-//                 planets {
-//                   id
-//                   name
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       `
-//     );
-//     return data.allFilms;
-//   });
-// }

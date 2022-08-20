@@ -1,3 +1,9 @@
+.container {
+    background-color: white;
+    border-radius: 4px;
+    border-bottom: 1rem;
+}
+
 .episode {
     position: absolute;
     width: 730px;
@@ -8,4 +14,32 @@
     box-shadow: 0px 2px 1px
         rgba(196, 196, 196, 0.2);
     border-radius: 4px;
+}
+
+.arrow {
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+}
+
+.arrow:hover {
+    opacity: 0.7;
+}
+
+.rotate {
+    transform: -180deg;
+}
+
+.summary {
+    box-shadow: 0px 2px 1px rgba(196, 196,196, 0.2);
+    color: #00687f;
+    display: flex;
+    font-weight: 700;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.details {
+    box-shadow: 0px 2px 1px rgba(196, 196, 196, 0.2);
+    padding: 1rem;
 }

@@ -1,29 +1,48 @@
 import React, { PropsWithChildren } from "react";
+// import {clsx } from "clsx";
+
 import styles from "./Accordion.module.css";
+import arrowIcon from "./arrowIcon.svg";
 
-import { Link } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { gql } from "graphql-request";
-import { client } from "../../graphql/client";
-
-const REST_URI = "https://swapi.dev/api";
-
-interface AccordionProps extends React.ButtonHTMLAttributes<HTMLDivElement> {
+interface AccordionProps extends PropsWithChildren {
   variant?: "episode";
+  title: string;
+  isOpen?: boolean;
 }
 
 export const Accordion: React.FunctionComponent<
-  PropsWithChildren<AccordionProps>
-  > = ({ children, variant = "episode", ...props}) => {
+  PropsWithChildren<AccordionProps> > = ({ 
+    children, 
+    variant = "episode", 
+    isOpen = false,
+    title,
+    ...props
+  }) => {
+    const [open, setOpen] = React.useState(isOpen);
 
     const accordionClasses = `${styles.episode} ${styles[variant]}`;
 
-    return (
-      <div className={accordionClasses} {...props}>
-        {children}
+    const arrowStyles = (styles.arrow, open && styles.rotate);
 
-      </div>
-    )
+    return (
+      <div className={styles.container}>
+        <div className={accordionClasses} {...props}>
+          <div className={styles.summary}>
+            <span>{title}</span>
+            <img 
+              className={`${styles.arrow} ${open && styles.details}`} 
+              src={arrowIcon} 
+              onClick={() => setOpen(!open)}
+              />
+          </div>
+          {open && (
+            <div className={styles.details}>
+              <div>{children}</div>
+            </div>
+          )}
+        </div>
+        </div>
+    );
 };
 
 Accordion.displayName = "Accordion";
