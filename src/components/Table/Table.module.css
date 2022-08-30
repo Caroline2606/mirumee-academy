@@ -1,0 +1,31 @@
+.container {
+    color: #474747;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    text-align: right;
+}
+
+.head {
+    border-bottom: 1px solid #C4C4C4;
+    display: flex;
+    padding: 1rem 0;
+}
+
+.row {
+    display: flex;
+    margin: 1.3rem 0;
+    width: 100%;
+}
+
+.row:first-child {
+    margin-bottom: 0;
+}
+
+.cell {
+    display: flex;
+}
+
+.rowsContainer {
+    margin: 1.5rem 0 1rem;
+}
